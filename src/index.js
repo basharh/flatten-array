@@ -1,5 +1,8 @@
-
 export default function flatten(input) {
+  if (!Array.isArray(input)) {
+    throw new Error('wrong argument type');
+  }
+
   let flat = [];
   input.forEach((item) => {
     if (Array.isArray(item))
@@ -9,7 +12,3 @@ export default function flatten(input) {
   });
   return flat;
 }
-
-let test = [1, [[2, 3.1], 3], 4];
-
-console.log(flatten(test));
